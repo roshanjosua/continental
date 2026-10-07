@@ -42,5 +42,11 @@ jobs:
       - name: Database tests
         run: npm run db:test
 
+      - name: Prepare local E2E accounts
+        run: npm run test:e2e:setup
+
+      - name: Playwright authentication tests
+        run: npm run test:e2e
+
       - name: Build
         run: npm run build

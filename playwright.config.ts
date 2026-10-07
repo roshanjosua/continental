@@ -1,4 +1,7 @@
 import { defineConfig } from "@playwright/test";
+import dotenv from "dotenv";
+
+dotenv.config({ path: ".env.test.local" });
 
 export default defineConfig({
   testDir: "./tests/e2e",
@@ -9,7 +12,6 @@ export default defineConfig({
   },
   use: {
     baseURL: "http://127.0.0.1:3000",
-    channel: "chrome",
     trace: "on-first-retry",
   },
   webServer: {

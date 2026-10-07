@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Continential | V1.0 Foundation",
-  description: "Repository and development foundation for a private productivity and collaboration application.",
+  title: "Continental",
+  description: "Private productivity and collaboration workspace.",
   manifest: "/manifest.webmanifest",
 };
 

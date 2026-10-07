@@ -1,10 +1,10 @@
 import { expect, test } from "@playwright/test";
 
-test("homepage loads and renders the V1.0 foundation content", async ({ page }) => {
+test("unauthenticated homepage routes to the login screen", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page).toHaveTitle(/Continential/i);
+  await expect(page).toHaveTitle(/Continental/i);
   await expect(
-    page.getByRole("heading", { name: /v1\.0 foundation/i }),
+    page.getByRole("heading", { name: /sign in to your workspace/i }),
   ).toBeVisible();
 });

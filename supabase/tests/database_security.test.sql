@@ -97,7 +97,7 @@ UPDATE public.profiles
 SET display_name = 'Team Member Updated'
 WHERE auth_user_id = 'a2000000-0000-4000-8000-000000000002';
 
-SELECT plan(29);
+SELECT plan(32);
 
 SELECT is(
   (SELECT username FROM public.profiles WHERE auth_user_id = 'a2000000-0000-4000-8000-000000000002'),
@@ -258,6 +258,23 @@ SELECT throws_ok(
   $$UPDATE public.profiles SET role = 'ADMIN' WHERE auth_user_id = 'a3000000-0000-4000-8000-000000000003'$$,
   '42501', NULL,
   'A regular user cannot promote themselves to administrator'
+);
+SELECT throws_ok(
+  $$UPDATE public.profiles SET is_active = FALSE WHERE auth_user_id = 'a3000000-0000-4000-8000-000000000003'$$,
+  '42501', NULL,
+  'A regular user cannot change their active status'
+);
+SELECT throws_ok(
+  $$UPDATE public.profiles SET auth_user_id = 'a2000000-0000-4000-8000-000000000002'
+    WHERE auth_user_id = 'a3000000-0000-4000-8000-000000000003'$$,
+  '42501', NULL,
+  'A regular user cannot reassign their authentication identity'
+);
+SELECT throws_ok(
+  $$UPDATE public.profiles SET username = 'another.username'
+    WHERE auth_user_id = 'a3000000-0000-4000-8000-000000000003'$$,
+  '42501', NULL,
+  'A regular user cannot change their immutable username'
 );
 SELECT throws_ok(
   $$UPDATE public.goals SET owner_id = (SELECT other_profile_id FROM test_profile_refs)
