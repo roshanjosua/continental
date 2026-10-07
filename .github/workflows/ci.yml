@@ -31,5 +31,16 @@ jobs:
       - name: Unit tests
         run: npm run test
 
+      - name: Set up Supabase CLI
+        uses: supabase/setup-cli@v3
+        with:
+          version: 2.120.0
+
+      - name: Start local Supabase
+        run: npm run db:start
+
+      - name: Database tests
+        run: npm run db:test
+
       - name: Build
         run: npm run build

@@ -38,6 +38,10 @@ yarn-error.log*
 .env.*.local
 !.env.example
 
+# Supabase local state
+/supabase/.temp/
+/supabase/.branches/
+
 # vercel
 .vercel
 

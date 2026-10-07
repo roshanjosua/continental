@@ -29,7 +29,7 @@ This project is intended to become a private productivity and academic planning 
 - Node.js 20+
 - npm
 - Git
-- A Supabase project for later integration
+- Docker Desktop for local Supabase services
 
 ## Installation
 
@@ -57,6 +57,19 @@ npm run build
 npm run test
 npm run test:e2e
 ```
+
+## Local database development
+
+The local Supabase stack is isolated from both hosted projects and uses the committed migrations:
+
+```bash
+npm run db:start
+npm run db:test
+npm run db:reset
+npm run db:stop
+```
+
+The database scripts invoke the pinned Supabase CLI 2.120.0 through `npx` (network access is needed on first use). Docker Desktop must be running. Do not link local development to PROD.
 
 ## Linting
 
@@ -132,6 +145,6 @@ The frontend is designed for static deployment to Cloudflare Pages. Supabase pro
 
 ## Important notes
 
-- This application is intentionally not feature-complete in V1.0.
-- No authentication flows, data models, dashboards, or core feature modules are implemented here.
-- The project is structured to support future versions without architectural redesign.
+- This application is under active development and is not feature-complete.
+- V1.1 establishes database schema and authorization policies only; product feature UI and authentication flows are not implemented.
+- Remote migrations must be deliberately linked to DEV. PROD deployment is withheld until its approved release checkpoint.
