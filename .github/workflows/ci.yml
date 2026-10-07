@@ -45,6 +45,9 @@ jobs:
       - name: Prepare local E2E accounts
         run: npm run test:e2e:setup
 
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
       - name: Playwright authentication tests
         run: npm run test:e2e
 
