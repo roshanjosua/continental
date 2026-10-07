@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Continential icon">
+  <rect width="512" height="512" rx="92" fill="#0f172a" />
+  <path d="M128 332V184c0-29.47 23.93-53.4 53.4-53.4h149.2c29.47 0 53.4 23.93 53.4 53.4v148H128z" fill="#f8fafc" opacity="0.2"/>
+  <path d="M168 296V208h176v88H168zm20-64h136v20H188v-20zm0 44h102v20H188v-20z" fill="#f8fafc"/>
+  <circle cx="356" cy="236" r="32" fill="#38bdf8"/>
+</svg>
